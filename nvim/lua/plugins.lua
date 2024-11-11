@@ -1,3 +1,5 @@
+local vim = vim
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -12,6 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    {
+        "sainnhe/sonokai",
+    },
     {
         "hrsh7th/nvim-cmp"
     },
@@ -40,18 +45,8 @@ local plugins = {
         "windwp/nvim-autopairs", config = true
     },
     {
-        "nvim-telescope/telescope.nvim", tag = "0.1.2",
+        "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-    },
-    {
-        "EdenEast/nightfox.nvim",
-        config = function ()
-            require("nightfox").setup({
-                options = {
-                    transparent = true
-                }
-            })
-        end
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -99,7 +94,6 @@ local plugins = {
 
         config = function()
             require("nvim-treesitter.configs").setup{
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "rust", "go" },
                 sync_install = false,
                 auto_install = true,
                 highlight = {
@@ -122,7 +116,6 @@ local plugins = {
 
             require('mason').setup({})
             require('mason-lspconfig').setup({
-                ensure_installed = {'lua_ls', 'clangd', 'ts_ls', 'rust_analyzer', 'gopls', 'pyright', 'cssls', 'html'},
                 handlers = {
                     lsp_zero.default_setup,
                 },
@@ -130,6 +123,15 @@ local plugins = {
 
             local cmp = require("cmp")
             cmp.setup({
+                window = {
+                    completion = {
+                        border = "rounded",
+                    },
+                    documentation = {
+                        max_width = 60,
+                        border = "rounded",
+                    },
+                },
                 mapping = cmp.mapping.preset.insert({
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 }),

@@ -23,3 +23,6 @@ run() {
         echo -e "\n" &&
         cat "$1/output.txt"
 }
+
+export EDITOR="nvim"
+export VISUAL="nvim"
