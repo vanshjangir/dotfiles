@@ -2,6 +2,7 @@ local g = vim.g
 local o = vim.o
 g.mapleader = " "
 g.maplocalleader = " "
+g.sonokai_transparent_background = 2
 o.number = true
 o.relativenumber = true
 o.clipboard = "unnamedplus"

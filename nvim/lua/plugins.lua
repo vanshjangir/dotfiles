@@ -40,18 +40,11 @@ local plugins = {
         "windwp/nvim-autopairs", config = true
     },
     {
-        "nvim-telescope/telescope.nvim", tag = "0.1.2",
+        "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
-        "EdenEast/nightfox.nvim",
-        config = function ()
-            require("nightfox").setup({
-                options = {
-                    transparent = true
-                }
-            })
-        end
+        "sainnhe/sonokai",
     },
     {
         "nvim-lualine/lualine.nvim",
