@@ -20,3 +20,4 @@ o.inccommand = "split"
 o.termguicolors = true
 o.guicursor = "i:block"
 o.pumheight = 10
+o.jumpoptions = "stack"
