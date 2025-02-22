@@ -150,6 +150,14 @@ local plugins = {
         end,
         branch = 'v3.x'
     },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    }
 }
 
 require("lazy").setup(plugins, {})
