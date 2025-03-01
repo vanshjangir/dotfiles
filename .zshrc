@@ -15,14 +15,5 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-run() {
-    g++ "$1/a.cpp" -o "$1/a" &&
-        "$1/a" < "$1/input.txt" > "$1/res.txt" &&
-        diff "-B" "-Z" "$1/res.txt" "$1/output.txt";
-        cat "$1/res.txt" &&
-        echo -e "\n" &&
-        cat "$1/output.txt"
-}
-
 export EDITOR="nvim"
 export VISUAL="nvim"
