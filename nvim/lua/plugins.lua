@@ -47,6 +47,18 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("telescope").setup{
+                defaults = {
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        preview_height = 0.6,
+                        preview_cutoff = 0,
+                        height = 0.95
+                    },
+                }
+            }
+        end,
     },
     {
         "nvim-lualine/lualine.nvim",

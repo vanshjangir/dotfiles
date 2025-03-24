@@ -20,9 +20,11 @@ map("n", "<Tab>", "<CMD>b #<CR>")
 map("n", "<leader>tn", "<CMD>tabnew | term<CR>")
 map("n", "<leader>q", "<CMD>tabclose<CR><CMD>tabp<CR>")
 
-map("i", "<A-n>", "<ESC>")
+map("i", "<A-n>", "<ESC><CMD>nohlsearch<CR>")
 map("n", "<A-n>", "<ESC>")
 map("t", "<A-n>", "<C-\\><C-n>")
 map("n", "<A-c>", "<CMD>tabn<CR>i")
 map("i", "<A-c>", "<CMD>tabn<CR>")
 map("t", "<A-c>", "<CMD>tabn<CR>")
+
+map("n", "<A-n>", "<CMD>nohlsearch<CR>")

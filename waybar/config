@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "spacing": 0,
-    "height": 24,
+    "height": 28,
     "modules-left": [
         "hyprland/workspaces",
     ],
@@ -10,6 +10,7 @@
 	"backlight",
 	"pulseaudio",
     "network",
+    "power-profiles-daemon",
     "battery",
     "clock",
     ],
@@ -58,17 +59,17 @@
         "interval": 5
     },
     "pulseaudio": {
-        "format": "{icon}{volume}%",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "󰂰 {volume}%",
         "nospacing": 1,
         "tooltip-format": "Volume : {volume}%",
-        "format-muted": "󰝟 ",
+        "format-muted": "󰝟",
         "format-icons": {
-            "headphone": " ",
+            "headphone": "",
             "default": [
-                "󰕿 ",
-                "󰖀 ",
-                "󰕾 "
+                "󰕿",
+                "󰖀",
+                "󰕾"
             ]
         },
         "on-click": "pavucontrol",
@@ -111,6 +112,15 @@
             "warning": 40,
             "critical": 20
         },
-        "tooltip": false
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "performance": " ",
+            "balanced": " ",
+            "power-saver": " "
+        }
     },
 }
