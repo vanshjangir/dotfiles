@@ -119,37 +119,17 @@ local plugins = {
     {
         "VonHeikemen/lsp-zero.nvim",
         config = function()
+
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
             local lsp_zero = require('lsp-zero')
+
+
             lsp_zero.extend_lspconfig()
 
             lsp_zero.on_attach(function(client, bufnr)
                 lsp_zero.default_keymaps({buffer = bufnr})
-            end)
 
-            require('mason').setup({})
-            require('mason-lspconfig').setup({
-                handlers = {
-                    lsp_zero.default_setup,
-                },
-            })
-
-            local cmp = require("cmp")
-            cmp.setup({
-                window = {
-                    completion = {
-                        border = "rounded",
-                    },
-                    documentation = {
-                        max_width = 60,
-                        border = "rounded",
-                    },
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                }),
-            })
-
-            lsp_zero.on_attach(function(client, bufnr)
                 local opts = {buffer = bufnr, remap = false}
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
@@ -159,8 +139,41 @@ local plugins = {
                 vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
                 vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
             end)
+
+            require('mason').setup({})
+            require('mason-lspconfig').setup({
+                handlers = {
+                    lsp_zero.default_setup,
+                },
+            })
+            
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
+                },
+                window = {
+                    completion = {
+                        border = "rounded",
+                    },
+                    documentation = {
+                        max_width = 60,
+                        border = "rounded",
+                    },
+                },
+
+                mapping = cmp.mapping.preset.insert({
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    { name = 'buffer' },
+                    { name = 'path' },
+                }),
+            })
         end,
-        branch = 'v3.x'
     },
     {
         "NeogitOrg/neogit",
