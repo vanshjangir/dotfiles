@@ -42,9 +42,6 @@ local plugins = {
         "hrsh7th/cmp-buffer", after = "nvim-cmp"
     },
     {
-        "windwp/nvim-autopairs", config = true
-    },
-    {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
@@ -57,37 +54,6 @@ local plugins = {
                         height = 0.95
                     },
                 }
-            }
-        end,
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        event = "BufEnter",
-        config = function()
-            require("lualine").setup{
-                options = {
-                    component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" },
-                },
-                sections = {
-                    lualine_c = {{ "filename", file_status = true, path = 1 }},
-                }
-            }
-        end,
-        dependencies = { "nvim-web-devicons" },
-    },
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-            "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
-        },
-        config = function()
-            require("nvim-tree").setup {
-                sync_root_with_cwd = true;
             }
         end,
     },
@@ -178,11 +144,35 @@ local plugins = {
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "nvim-lua/plenary.nvim",
             "sindrets/diffview.nvim",
+            "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
         },
-    }
+    },
+    {
+        "nvim-tree/nvim-web-devicons",
+    },
+    {
+        "echasnovski/mini.nvim",
+        version = "*",
+        config = function()
+            require('mini.files').setup()
+            require('mini.comment').setup()
+            require('mini.move').setup()
+            require('mini.pairs').setup()
+            require('mini.surround').setup()
+            require('mini.statusline').setup()
+            require('mini.indentscope').setup({
+                draw = {
+                    delay = 0,
+                    animation = require('mini.indentscope').gen_animation.none()
+                },
+                options = {
+                    try_as_border = true
+                }
+            })
+        end,
+    },
 }
 
 require("lazy").setup(plugins, {})
