@@ -21,3 +21,6 @@ o.termguicolors = true
 o.pumheight = 10
 o.jumpoptions = "stack"
 o.guicursor = "i:block"
+o.cursorline = true
+o.winborder = "single"
+o.guicursor = "i:hor20,t:hor20"

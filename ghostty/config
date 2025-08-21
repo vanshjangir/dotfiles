@@ -1,0 +1,11 @@
+font-family = Iosevka Fixed
+font-size = 18
+window-padding-x = 0
+window-padding-y = 0
+background = #000e1a
+#background = #000000
+shell-integration-features = no-cursor
+cursor-style = underline
+#background-opacity = 0.9
+adjust-cursor-thickness = 4
+theme = "Builtin Dark"

@@ -15,7 +15,7 @@ map("i", "<A-k>", "<Up>")
 map("i", "<A-h>", "<Left>")
 map("i", "<A-l>", "<Right>")
 
-map("n", "<leader>e", "<CMD>NvimTreeToggle<CR>")
+map("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
 map("n", "<Tab>", "<CMD>b #<CR>")
 map("n", "<leader>tn", "<CMD>tabnew | term<CR>")
 map("n", "<leader>q", "<CMD>tabclose<CR><CMD>tabp<CR>")
