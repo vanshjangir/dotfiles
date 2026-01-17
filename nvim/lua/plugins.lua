@@ -54,7 +54,7 @@ local plugins = {
 require("lazy").setup(plugins, {})
 require("gitsigns").setup()
 require("mason").setup()
-require("nvim-treesitter.configs").setup{
+require("nvim-treesitter").setup{
     sync_install = false,
     auto_install = true,
     highlight = {
@@ -79,7 +79,7 @@ require("mini.indentscope").setup({
 require("telescope").setup{
     defaults = {
         layout_strategy = "vertical",
-        layout_config = { preview_height = 0.6, preview_cutoff = 0, height = 0.95 },
+        layout_config = { preview_cutoff = 0 },
     }
 }
 
