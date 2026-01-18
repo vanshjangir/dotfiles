@@ -33,9 +33,9 @@ local plugins = {
     {"lewis6991/gitsigns.nvim"},
     {
         "nvim-treesitter/nvim-treesitter",
-        run = function()
-            require("nvim-treesitter.install").update({ with_sync = true })()
-        end,
+        branch = "master",
+        lazy = false,
+        build = ":TSUpdate",
     },
     {
         "NeogitOrg/neogit",
@@ -54,7 +54,7 @@ local plugins = {
 require("lazy").setup(plugins, {})
 require("gitsigns").setup()
 require("mason").setup()
-require("nvim-treesitter").setup{
+require("nvim-treesitter.configs").setup{
     sync_install = false,
     auto_install = true,
     highlight = {
