@@ -25,3 +25,7 @@ vim.cmd([[highlight Visual guibg=#2e4158]])
 vim.cmd([[highlight MiniFilesCursorLine guibg=#2e4158]])
 vim.cmd([[highlight TelescopeSelection guibg=#2e4158]])
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal number]])
+
+vim.cmd([[highlight! link NeogitDiffContext Normal]])
+vim.cmd([[highlight! link NeogitDiffContextHighlight Normal]])
+vim.cmd([[highlight! link DiffContext Normal]])

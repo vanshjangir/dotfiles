@@ -32,7 +32,7 @@
             "7": "7",
             "8": "8",
             "9": "9",
-            "default": "",
+            "default": " ",
             "urgent": "󱓻"
         }
     },
@@ -52,7 +52,7 @@
         ],
         "tooltip-format-disconnected": "Disconnected",
         "tooltip-format-wifi": "{icon}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "on-click": "kitty nmtui",
+        "on-click": "ghostty -e nmtui",
         "format-ethernet": "󰈀 ",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "nospacing": 1,
