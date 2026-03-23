@@ -23,8 +23,10 @@ map("n", "<leader>q", "<CMD>tabclose<CR><CMD>tabp<CR>")
 map("i", "<A-n>", "<ESC><CMD>nohlsearch<CR>")
 map("n", "<A-n>", "<ESC>")
 map("t", "<A-n>", "<C-\\><C-n>")
-map("n", "<A-c>", "<CMD>tabn<CR>i")
+map("n", "<A-c>", "<CMD>tabn<CR>")
 map("i", "<A-c>", "<CMD>tabn<CR>")
 map("t", "<A-c>", "<CMD>tabn<CR>")
 
 map("n", "<A-n>", "<CMD>nohlsearch<CR>")
+
+map("n", "gsp", "<CMD>Gitsigns preview_hunk_inline<CR>")
