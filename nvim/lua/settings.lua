@@ -24,3 +24,4 @@ o.guicursor = "i:block"
 o.cursorline = true
 o.winborder = "rounded"
 o.guicursor = "i:hor20,t:hor20"
+o.winblend = 15

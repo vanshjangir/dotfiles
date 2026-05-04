@@ -12,7 +12,6 @@ local plugins = {
     {"sainnhe/sonokai"},
     {"williamboman/mason.nvim"},
     {"neovim/nvim-lspconfig"},
-    {"nvim-tree/nvim-web-devicons"},
     {
         "saghen/blink.cmp",
         dependencies = { "rafamadriz/friendly-snippets" },
@@ -33,7 +32,7 @@ local plugins = {
     {"lewis6991/gitsigns.nvim"},
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
+        branch = "main",
         lazy = false,
         build = ":TSUpdate",
     },
@@ -54,7 +53,7 @@ local plugins = {
 require("lazy").setup(plugins, {})
 require("gitsigns").setup()
 require("mason").setup()
-require("nvim-treesitter.configs").setup{
+require("nvim-treesitter").setup{
     sync_install = false,
     auto_install = true,
     highlight = {
@@ -63,7 +62,11 @@ require("nvim-treesitter.configs").setup{
     },
     indent = { enable = true },
 }
-require("mini.files").setup()
+require("mini.files").setup({
+    content = {
+        prefix = function() return '' end
+    }
+})
 require("mini.comment").setup()
 require("mini.move").setup()
 require("mini.pairs").setup()
