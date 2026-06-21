@@ -63,12 +63,14 @@ require("nvim-treesitter").setup{
     indent = { enable = true },
 }
 require("mini.files").setup({
-    content = {
-        prefix = function() return '' end
+    windows = {
+        width_nofocus = 20,
+        width_focus = 30,
     }
 })
 require("mini.comment").setup()
 require("mini.move").setup()
+require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.surround").setup()
 require("mini.statusline").setup()
