@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
+    font-size: 18px;
     padding-top: 0px;
     padding-bottom: 0px;
     margin-top: 0px;
@@ -9,8 +9,8 @@
 }
 
 window#waybar {
-    background-color: black;
     color: #ffffff;
+    background-color: rgba(0,0,0,0.85);
 }
 
 #backlight {
@@ -18,17 +18,18 @@ window#waybar {
 }
 
 #workspaces button {
-    color: #268bd2;
+    color: #ffffff;
     margin-right: 0px;
     padding-right: 3px;
     padding-left: 3px;
-    font-weight: bolder;
+    border-radius: 0px;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-    color: #000000;
-    background-color: #ffffff;
+    color: black;
+    background-color: white;
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
@@ -101,5 +102,12 @@ window#waybar {
 }
 
 #clock {
-    color: #ffffff;
+    background-color: #85d3f2;
+    color: black;
+    font-weight: 700;
+}
+
+#custom-launcher:hover {
+    background-color: #ffffff;
+    color: #000000;
 }

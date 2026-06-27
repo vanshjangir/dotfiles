@@ -1,11 +1,9 @@
 function _G.MyTabLine()
     local s = ""
     local tabs = vim.fn.tabpagenr("$")
-    local width = math.floor(vim.o.columns / math.max(tabs, 1))
 
     for i = 1, tabs do
         local hl = i == vim.fn.tabpagenr() and "%#TabLineSel#" or "%#TabLine#"
-
         local buflist = vim.fn.tabpagebuflist(i)
         local winnr = vim.fn.tabpagewinnr(i)
         local name = vim.fn.fnamemodify(
@@ -14,37 +12,33 @@ function _G.MyTabLine()
         )
 
         local label = "[" .. i .. "] " .. name
-        local pad = math.max(0, width - vim.fn.strdisplaywidth(label))
-        s = s .. hl .. label .. string.rep(" ", pad)
+        s = s .. hl .. label .. " "
     end
     return s
 end
 
-local g = vim.g
-local o = vim.o
-
-g.mapleader = " "
-g.maplocalleader = " "
-g.sonokai_transparent_background = 2
-o.number = true
-o.relativenumber = true
-o.clipboard = "unnamedplus"
-o.autoindent = true
-o.showtabline = 2
-o.expandtab = true
-o.shiftwidth = 4
-o.tabstop = 4
-o.ruler = true
-o.mouse = "a"
-o.title = true
-o.hidden = true
-o.showmatch = true
-o.inccommand = "split"
-o.termguicolors = true
-o.pumheight = 10
-o.jumpoptions = "stack"
-o.guicursor = "i:block"
-o.cursorline = true
-o.winborder = "rounded"
-o.guicursor = "i:hor20,t:hor20"
-o.tabline = "%!v:lua.MyTabLine()"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.sonokai_transparent_background = 2
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.clipboard = "unnamedplus"
+vim.o.autoindent = true
+vim.o.showtabline = 2
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.ruler = true
+vim.o.mouse = "a"
+vim.o.title = true
+vim.o.hidden = true
+vim.o.showmatch = true
+vim.o.inccommand = "split"
+vim.o.termguicolors = true
+vim.o.pumheight = 10
+vim.o.jumpoptions = "stack"
+vim.o.guicursor = "i:block"
+vim.o.cursorline = true
+vim.o.winborder = "rounded"
+vim.o.guicursor = "i:hor20,t:hor20"
+vim.o.tabline = "%!v:lua.MyTabLine()"

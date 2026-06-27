@@ -1,9 +1,10 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "spacing": 0,
     "height": 28,
     "modules-left": [
+        "custom/launcher",
         "hyprland/workspaces",
     ],
     "modules-right": [
@@ -16,8 +17,9 @@
     ],
     "backlight": {
         "device": "acpi_video1",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip-format": "Brightness : {percent}%",
     },
     "hyprland/workspaces": {
         "on-click": "activate",
@@ -37,29 +39,29 @@
         }
     },
     "clock": {
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "format": "{:%d %b %Y, %a, %I:%M %p} "
+        "tooltip-format": "{:%d %b %Y, %a, %H:%M}\n\n<tt>{calendar}</tt>",
+        "format": " {:%H:%M} "
     },
     "network": {
-        "format-wifi": "{icon} {essid}",
-        "format-disconnected": "Disconnected ⚠ ",
+        "format-wifi": "{icon}",
+        "format-disconnected": "⚠",
         "format-icons": [
-            "󰤯 ",
-            "󰤟 ",
-            "󰤢 ",
-            "󰤥 ",
-            "󰤨 "
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
         ],
         "tooltip-format-disconnected": "Disconnected",
-        "tooltip-format-wifi": "{icon}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "on-click": "ghostty -e nmtui",
-        "format-ethernet": "󰈀 ",
+        "format-ethernet": "󰈀",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "nospacing": 1,
         "interval": 5
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}",
         "format-bluetooth": "󰂰 {volume}%",
         "nospacing": 1,
         "tooltip-format": "Volume : {volume}%",
@@ -76,8 +78,9 @@
         "scroll-step": 1
     },
     "custom/launcher": {
-        "format": "󰣇 ",
+        "format": " \uf31b  ",
         "tooltip": true,
+        "on-click": "wlogout" 
     },
     "battery": {
         "format": "{icon} {capacity}%",
@@ -118,9 +121,9 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-            "performance": " ",
-            "balanced": " ",
-            "power-saver": " "
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
         }
     },
 }
